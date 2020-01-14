@@ -1,4 +1,3 @@
-
 from selenium.webdriver.support.select import Select
 from selenium import webdriver
 import pytest
@@ -10,10 +9,10 @@ from utilities.BaseClass import BaseClass
 
 class TestHomePage(BaseClass):
 
-    def test_formSubmission(self,getData):
+    def test_formSubmission(self, getData):
         log = self.getLogger()
-        homepage= HomePage(self.driver)
-        log.info("first name is "+getData["firstname"])
+        homepage = HomePage(self.driver)
+        log.info("first name is " + getData["firstname"])
         homepage.getName().send_keys(getData["firstname"])
         homepage.getEmail().send_keys(getData["lastname"])
         homepage.getCheckBox().click()
@@ -29,4 +28,3 @@ class TestHomePage(BaseClass):
     @pytest.fixture(params=HomePageData.getTestData("Testcase2"))
     def getData(self, request):
         return request.param
-

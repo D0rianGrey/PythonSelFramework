@@ -1,7 +1,9 @@
 import pytest
 from selenium import webdriver
 import time
+
 driver = None
+
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -12,7 +14,7 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="class")
 def setup(request):
     global driver
-    browser_name=request.config.getoption("browser_name")
+    browser_name = request.config.getoption("browser_name")
     if browser_name == "chrome":
         driver = webdriver.Chrome(executable_path="C:\\chromedriver.exe")
     elif browser_name == "firefox":
@@ -51,5 +53,4 @@ def pytest_runtest_makereport(item):
 
 
 def _capture_screenshot(name):
-        driver.get_screenshot_as_file(name)
-
+    driver.get_screenshot_as_file(name)
