@@ -12,34 +12,29 @@ class HomePage:
     name = (By.CSS_SELECTOR, "[name='name']")
     email = (By.NAME, "email")
     check = (By.ID, "exampleCheck1")
-    gender= (By.ID, "exampleFormControlSelect1")
+    gender = (By.ID, "exampleFormControlSelect1")
     submit = (By.XPATH, "//input[@value='Submit']")
     successMessage = (By.CSS_SELECTOR, "[class*='alert-success']")
 
-    def shopItems(self):
+    def shop_items(self):
         self.driver.find_element(*HomePage.shop).click()
-        checkOutPage = CheckOutPage(self.driver)
-        return checkOutPage
+        check_out_page = CheckOutPage(self.driver)
+        return check_out_page
 
-    def getName(self):
+    def get_name(self):
         return self.driver.find_element(*HomePage.name)
 
-
-    def getEmail(self):
+    def get_email(self):
         return self.driver.find_element(*HomePage.email)
 
-    def getCheckBox(self):
+    def get_check_box(self):
         return self.driver.find_element(*HomePage.check)
 
-    def getGender(self):
+    def get_gender(self):
         return self.driver.find_element(*HomePage.gender)
 
-    def submitForm(self):
+    def submit_form(self):
         return self.driver.find_element(*HomePage.submit)
 
-    def getSuccessMessage(self):
+    def get_success_message(self):
         return self.driver.find_element(*HomePage.successMessage)
-
-
-
-

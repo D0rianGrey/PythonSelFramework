@@ -1,5 +1,5 @@
 import pytest
-from Logging.base_class import BaseClass
+from Practice.Logging.base_class import BaseClass
 
 
 @pytest.mark.usefixtures('dataLoad')

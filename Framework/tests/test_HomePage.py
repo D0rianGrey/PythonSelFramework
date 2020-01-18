@@ -1,28 +1,28 @@
 import pytest
 
 from Framework.TestData.HomePageData import HomePageData
-from Framework.pageObjects import HomePage
+from Framework.pageObjects.HomePage import HomePage
 from Framework.utilities.BaseClass import BaseClass
 
 
 class TestHomePage(BaseClass):
 
-    def test_formSubmission(self, getData):
-        log = self.getLogger()
+    def test_form_submission(self, get_data):
+        log = self.get_logger()
         homepage = HomePage(self.driver)
-        log.info("first name is " + getData["firstname"])
-        homepage.getName().send_keys(getData["firstname"])
-        homepage.getEmail().send_keys(getData["lastname"])
-        homepage.getCheckBox().click()
-        self.selectOptionByText(homepage.getGender(), getData["gender"])
+        log.info("first name is " + get_data["firstname"])
+        homepage.get_name().send_keys(get_data["firstname"])
+        homepage.get_email().send_keys(get_data["lastname"])
+        homepage.get_check_box().click()
+        self.selectOptionByText(homepage.get_gender(), get_data["gender"])
 
-        homepage.submitForm().click()
+        homepage.submit_form().click()
 
-        alertText = homepage.getSuccessMessage().text
+        alert_text = homepage.get_success_message().text
 
-        assert ("Success" in alertText)
+        assert ("Success" in alert_text)
         self.driver.refresh()
 
-    @pytest.fixture(params=HomePageData.getTestData("Testcase2"))
-    def getData(self, request):
+    @pytest.fixture(params=HomePageData.get_test_data("Testcase2"))
+    def get_data(self, request):
         return request.param

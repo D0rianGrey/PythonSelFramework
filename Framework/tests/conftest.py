@@ -16,9 +16,9 @@ def setup(request):
     global driver
     browser_name = request.config.getoption("browser_name")
     if browser_name == "chrome":
-        driver = webdriver.Chrome(executable_path="C:\\chromedriver.exe")
+        driver = webdriver.Chrome()
     elif browser_name == "firefox":
-        driver = webdriver.Firefox(executable_path="C:\\geckodriver.exe")
+        driver = webdriver.Firefox()
     elif browser_name == "IE":
         print("IE driver")
     driver.get("https://rahulshettyacademy.com/angularpractice/")
